@@ -52,6 +52,10 @@ namespace BlacksmithTools
 
             if (!__instance.m_isPlayer) return;
 
+            if (__instance.m_bodyModel?.sharedMesh == null) return;
+
+            if (!__instance.m_bodyModel.sharedMesh.isReadable) return;
+
             //attach controller
             BodyPartController ctrl = __instance.gameObject.AddComponent<BodyPartController>();
             ctrl.Setup(__instance);
@@ -144,14 +148,14 @@ namespace BlacksmithTools
         [HarmonyPostfix]
         static void SetLeftHandPatch(VisEquipment __instance, bool __result)
         {
-            if (__result)  EquipmentChanged(__instance);
+            if (__result) EquipmentChanged(__instance);
         }
 
         [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetChestEquiped))]
         [HarmonyPostfix]
         static void SetChestPatch(VisEquipment __instance, bool __result, int hash)
         {
-            if (__result)  EquipmentChanged(__instance);
+            if (__result) EquipmentChanged(__instance);
         }
 
         [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetLegEquiped))]
