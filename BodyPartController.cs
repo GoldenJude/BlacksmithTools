@@ -83,13 +83,13 @@ namespace BlacksmithTools
 
                         for (int bone = 0; bone < 4; bone++)
                         {
-                            int boneIndex = (int)typeof(BoneWeight).GetProperty("boneIndex" + bone).GetValue(weight);
+                            int boneIndex = GetBoneIndex(weight, bone);
                             foreach (int boneToHide in bonesToHide)
                             {
                                 if (toHide) break;
 
                                 if (boneIndex != boneToHide) continue;
-                                float value = (float)typeof(BoneWeight).GetProperty("weight" + bone).GetValue(weight);
+                                float value = GetBoneWeight(weight, bone);
                                 if ((value / highestWeight) > minWeightToHide)
                                 {
                                     if (++detectedVerts == vertexThreshold)
@@ -118,6 +118,24 @@ namespace BlacksmithTools
             }
 
             return body;
+        }
+
+        int GetBoneIndex(BoneWeight boneWeight, int bone)
+        {
+            if (bone == 0) return boneWeight.boneIndex0;
+            if (bone == 1) return boneWeight.boneIndex1;
+            if (bone == 2) return boneWeight.boneIndex2;
+            if (bone == 3) return boneWeight.boneIndex3;
+            return -1;
+        }
+
+        float GetBoneWeight(BoneWeight boneWeight, int bone)
+        {
+            if (bone == 0) return boneWeight.weight0;
+            if (bone == 1) return boneWeight.weight1;
+            if (bone == 2) return boneWeight.weight2;
+            if (bone == 3) return boneWeight.weight3;
+            return 0f;
         }
 
         public void Setup(VisEquipment _viseq)
