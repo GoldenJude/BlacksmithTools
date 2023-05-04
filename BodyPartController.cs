@@ -79,17 +79,10 @@ namespace BlacksmithTools
                         if (toHide) break;
 
                         BoneWeight weight = weights[tris[tri + vert]];
+                        float highestWeight = Mathf.Max(weight.weight0, weight.weight1, weight.weight2, weight.weight3);
+
                         for (int bone = 0; bone < 4; bone++)
                         {
-                            float[] vertexWeights = new float[]
-                            {
-                            weight.weight0,
-                            weight.weight1,
-                            weight.weight2,
-                            weight.weight3
-                            };
-                            float highestWeight = vertexWeights.Max();
-
                             int boneIndex = (int)typeof(BoneWeight).GetProperty("boneIndex" + bone).GetValue(weight);
                             foreach (int boneToHide in bonesToHide)
                             {
