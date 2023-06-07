@@ -137,49 +137,49 @@ namespace BlacksmithTools
 
         //uhhh body part updates
         #region vile but thats how valheim code is
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetRightHandEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetRightHandEquipped))]
         [HarmonyPostfix]
         static void SetRightHandPatch(VisEquipment __instance, bool __result)
         {
             if(__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetLeftHandEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetLeftHandEquipped))]
         [HarmonyPostfix]
         static void SetLeftHandPatch(VisEquipment __instance, bool __result)
         {
             if (__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetChestEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetChestEquipped))]
         [HarmonyPostfix]
         static void SetChestPatch(VisEquipment __instance, bool __result, int hash)
         {
             if (__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetLegEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetLegEquipped))]
         [HarmonyPostfix]
         static void SetLegPatch(VisEquipment __instance, bool __result, int hash)
         {
             if (__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetHelmetEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetHelmetEquipped))]
         [HarmonyPostfix]
         static void SetHelmetPatch(VisEquipment __instance, bool __result)
         {
             if (__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetShoulderEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetShoulderEquipped))]
         [HarmonyPostfix]
         static void SetShoulderPtach(VisEquipment __instance, bool __result)
         {
             if (__result) EquipmentChanged(__instance);
         }
 
-        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetUtilityEquiped))]
+        [HarmonyPatch(typeof(VisEquipment), nameof(VisEquipment.SetUtilityEquipped))]
         [HarmonyPostfix]
         static void SetUtilityPatch(VisEquipment __instance, bool __result)
         {
