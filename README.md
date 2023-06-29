@@ -100,6 +100,9 @@ Access the BlacksmithTools.BodypartSystem class and insert your configuration in
     RightToeBase - 52
 
 ## Changelog  
+- **2.0.3**  
+fixed patch method names, thanks Azumatt  
+merged optimization from MSchmoecker  
 - **2.0.2**  
 armor stand update - hiding does not apply to unreadable body models anymore  
 added .cfg extension and made explanation of config files a bit clearer  
