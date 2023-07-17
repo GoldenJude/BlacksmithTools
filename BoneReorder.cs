@@ -28,7 +28,7 @@ namespace BlacksmithTools
         [HarmonyPostfix]
         static void AttachArmorPatch(VisEquipment __instance, List<GameObject> __result, int itemHash)
         {
-            if (!Main.reorderEnabled.Value) return;
+            if (!Main.reorderEnabled.Value || __result == null) return;
 
             foreach (GameObject result in __result)
             {
